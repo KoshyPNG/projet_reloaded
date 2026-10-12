@@ -42,6 +42,7 @@ func Erreur(tab []string) []string {
 	}
 	newtab = Format(newtab)
 	newtab = Ponctuation(newtab)
+	
 	return newtab
 }
 
