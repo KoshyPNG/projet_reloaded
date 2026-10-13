@@ -1,6 +1,9 @@
 package projet
 
-import "strings"
+import (
+	"strings"
+)
+
 
 func Apostrophe(tab []string , word int , apostrophe bool,i int) ([]string ,bool)  {
 	new := ""
@@ -10,8 +13,9 @@ func Apostrophe(tab []string , word int , apostrophe bool,i int) ([]string ,bool
 			if newtab[word] == "'" {
 				new = strings.TrimPrefix(newtab[word], "'")
 				newtab[word] = new
-				if word < len(newtab) {
-					newtab[word+1] += "'"
+				if word < len(newtab)-1 {
+					new = "'" + strings.TrimPrefix(newtab[word+1], " ")
+					newtab[word+1] = new
 				}
 			}
 			apostrophe = true
@@ -33,7 +37,7 @@ func Apostrophe(tab []string , word int , apostrophe bool,i int) ([]string ,bool
 			if newtab[word] == "'" {
 				new = strings.TrimPrefix(newtab[word], "'")
 				newtab[word] = new
-				newtab[word+1] += "'"
+				newtab[word-1] += "'"
 			}
 			apostrophe = true
 		}
@@ -50,7 +54,8 @@ func Guillemet(tab []string , word int , guillemet bool,i int) ([]string ,bool) 
 				new = strings.TrimPrefix(newtab[word], "\"")
 				newtab[word] = new
 				if word < len(newtab) {
-					newtab[word+1] += "\""
+					new = "\"" +  strings.TrimPrefix(newtab[word+1], " ")
+					newtab[word+1] = new
 				}
 			}
 			guillemet = true
@@ -72,7 +77,7 @@ func Guillemet(tab []string , word int , guillemet bool,i int) ([]string ,bool) 
 			if newtab[word] == "\"" {
 				new = strings.TrimPrefix(newtab[word], "\"")
 				newtab[word] = new
-				newtab[word+1] += "\""
+				newtab[word-1] += "\""
 			}
 			guillemet = true
 		}

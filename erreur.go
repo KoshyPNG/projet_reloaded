@@ -107,6 +107,7 @@ func Erreur(tab []string) []string {
 		}
 		newtab = ErrAn(newtab,word)
 	}
+	
 	newtab = Format(newtab)
 	newtab = Ponctuation(newtab)
 	

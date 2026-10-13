@@ -57,13 +57,13 @@ func FormatPoint(tab []string) []string {
 				word--
 			}
 		} else if (strings.HasPrefix(newtab[word], "'")) || (strings.HasSuffix(newtab[word], "'"))  {
-			if strings.HasPrefix(newtab[word], "'") {
+			if strings.HasPrefix(newtab[word], "'") && !apostrophe {
 				newtab,apostrophe = Apostrophe(newtab,word,apostrophe,0)
 			} else {
 				newtab,apostrophe = Apostrophe(newtab,word,apostrophe,1)
 			}
 		} else if (strings.HasPrefix(newtab[word], "\"")) || (strings.HasSuffix(newtab[word], "\""))  {
-			if strings.HasPrefix(newtab[word], "\"") {
+			if strings.HasPrefix(newtab[word], "\"") && !apostrophe  {
 				newtab,guillemet = Guillemet(newtab,word,guillemet,0)
 			} else {
 				newtab,guillemet = Guillemet(newtab,word,guillemet,1)

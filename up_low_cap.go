@@ -1,12 +1,17 @@
 package projet
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 )
 
 func Convup(tab []string,rep string, i int) []string {
 	nb,_ := strconv.Atoi(rep)
+	if nb > len(tab[:i]){
+		fmt.Println("up out of range")
+		return Reecrire(tab, i)
+	}
 	for indice := 1; indice <= nb; indice++ {
 		tab[i-indice] = strings.ToUpper(tab[i-indice])
 	}
@@ -15,6 +20,10 @@ func Convup(tab []string,rep string, i int) []string {
 
 func Convlow(tab []string, rep string, i int) []string {
 	nb,_ := strconv.Atoi(rep)
+	if nb > len(tab[:i]){
+		fmt.Println("low out of range")
+		return Reecrire(tab, i)
+	}
 	for indice := 1; indice <= nb; indice++ {
 		tab[i-indice] = strings.ToLower(tab[i-indice])
 	}
@@ -24,6 +33,10 @@ func Convlow(tab []string, rep string, i int) []string {
 func Convcap(tab []string, rep string, i int) []string {
 	nb,_ := strconv.Atoi(rep)
 	new := ""
+	if nb > len(tab[:i]){
+		fmt.Println("up out of range")
+		return Reecrire(tab, i)
+	}
 	for indice := 1; indice <= nb; indice++ {
 		for i, lettre := range tab[i-indice] {
 			if i == 0 {

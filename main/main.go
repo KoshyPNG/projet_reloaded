@@ -24,9 +24,21 @@ func main() {
 		return
 	}
 	tabligne := strings.Split(string(txt), "\n")
+	var oldphrase string
+	var newphrase string
 	for i, phrase := range tabligne {
 		tabphrase := strings.Split(string(phrase), " ")
 		tabphrase = projet.Format(tabphrase)
+
+		for newphrase != oldphrase{
+			oldphrase = strings.Join(tabphrase, " ")
+
+			tabphrase = projet.Format(tabphrase)
+			tabphrase = projet.Erreur(tabphrase)
+
+			newphrase = strings.Join(tabphrase, " ")
+		}
+		
 		tabphrase = projet.Erreur(tabphrase)
 		tabligne[i] = ""
 		for indice, mot := range tabphrase {
