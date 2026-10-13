@@ -1,6 +1,8 @@
 package projet
 
-import "strings"
+import (
+	"strings"
+)
 
 func Ponctuation(tab []string) []string {
 	return FormatPoint(tab)
@@ -57,18 +59,27 @@ func FormatPoint(tab []string) []string {
 				word--
 			}
 		} else if (strings.HasPrefix(newtab[word], "'")) || (strings.HasSuffix(newtab[word], "'"))  {
-			if strings.HasPrefix(newtab[word], "'") && !apostrophe {
-				newtab,apostrophe = Apostrophe(newtab,word,apostrophe,0)
+			if strings.HasPrefix(newtab[word], "'") {
+				if !apostrophe {
+					newtab,apostrophe = Apostrophe(newtab,word,apostrophe,0)
+				}
 			} else {
 				newtab,apostrophe = Apostrophe(newtab,word,apostrophe,1)
+
 			}
 		} else if (strings.HasPrefix(newtab[word], "\"")) || (strings.HasSuffix(newtab[word], "\""))  {
 			if strings.HasPrefix(newtab[word], "\"") && !apostrophe  {
 				newtab,guillemet = Guillemet(newtab,word,guillemet,0)
-			} else {
+			} else if apostrophe {
 				newtab,guillemet = Guillemet(newtab,word,guillemet,1)
 			}
 		}
+	}
+	newtab = Format(newtab)
+	if apostrophe {
+		newtab = RajouterApoGui(newtab, "'")
+	} else if guillemet {
+		newtab = RajouterApoGui(newtab, "\"")
 	}
 	newtab = Format(newtab)
 	return newtab

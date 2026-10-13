@@ -4,6 +4,11 @@ import (
 	"strings"
 )
 
+func RajouterApoGui(tab []string, lettre string) []string {
+	new := strings.TrimPrefix(tab[len(tab)-1], " ") + lettre
+	tab[len(tab)-1] = new
+	return tab
+}
 
 func Apostrophe(tab []string , word int , apostrophe bool,i int) ([]string ,bool)  {
 	new := ""
@@ -39,7 +44,8 @@ func Apostrophe(tab []string , word int , apostrophe bool,i int) ([]string ,bool
 				newtab[word] = new
 				newtab[word-1] += "'"
 			}
-			apostrophe = true
+			apostrophe = false
+			
 		}
 	}
 	return newtab,apostrophe
