@@ -41,30 +41,7 @@ go run ./main sample.txt sortie.txt
 
 Le programme lit le contenu du fichier d’entrée, applique les transformations, puis écrit le résultat dans le fichier de sortie.
 
-## Exemples de transformations prises en charge
-
-### Articles
-
-- `a untold story` → `an untold story`
-
-### Majuscules / minuscules / capitalisation
-
-- `(up)` : met les mots précédents en majuscules
-- `(low)` : met les mots précédents en minuscules
-- `(cap)` : met la première lettre en majuscule
-- `(up, 3)` / `(low, 3)` / `(cap, 6)` : applique la transformation sur un nombre donné de mots
-
-### Conversion numérique
-
-- `(hex)` : convertit une valeur hexadécimale en décimale
-- `(bin)` : convertit une valeur binaire en décimale
-
-### Ponctuation
-
-- correction des espaces avant/après les signes de ponctuation
-- gestion des apostrophes et guillemets
-
-## Exemple
+## Exemple de sample.txt
 
 Entrée :
 
@@ -78,6 +55,6 @@ Sortie :
 It was the best of times, it was the worst of TIMES,
 ```
 
-## Auteur
+## Projet
 
 Projet réalisé dans le cadre de l’exercice de programmation en Go.
