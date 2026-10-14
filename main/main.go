@@ -51,6 +51,7 @@ func main() {
 
 	final := strings.Join(tabligne, "\n")
 	tabbyte = []byte(final)
+	
 	err = os.WriteFile(sortie, tabbyte, os.FileMode(os.O_CREATE|os.O_WRONLY|os.O_TRUNC))
 	if err != nil {
 		fmt.Println("Erreur d'écriture", err)
